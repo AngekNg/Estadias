@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movimiento();
-        Debug.Log(Input.GetAxis("Horizontal"));
+        //Debug.Log(Input.GetAxis("Horizontal"));
     }
 
     void FixedUpdate()
