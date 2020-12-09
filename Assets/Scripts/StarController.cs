@@ -15,7 +15,7 @@ public class StarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Nivel_Seguridad <= Playerino.puntos && Nivel_Seguridad != 0)
+        if (Nivel_Seguridad <= Playerino.currentData && Nivel_Seguridad != 0)
             gameObject.SetActive(false);
     }
 }

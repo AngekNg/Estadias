@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7941213457999239679}
   - component: {fileID: 8810178785723386523}
   m_Layer: 0
-  m_Name: Portal 1
+  m_Name: Portal
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7941213457999239664}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: -1}
-  m_LocalPosition: {x: -13.12, y: 0.73, z: 30.41992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.73858, y: 0.73858, z: 0.73858}
   m_Children: []
   m_Father: {fileID: 0}

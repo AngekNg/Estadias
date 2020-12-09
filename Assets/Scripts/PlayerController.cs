@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    #region variables generales
+    #region variables
     Rigidbody2D rb;
-    public int velocidad;
-    public int puntos = 0;
+    public int speed;
+    public int currentData = 0;
+    public Animator camAnim;
     #endregion
 
     void Start()
@@ -23,43 +24,33 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movimiento();
+        Movement();
     }
 
-    void Movimiento()
+    void Movement()
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * velocidad, Input.GetAxisRaw("Vertical") * velocidad);
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Firewall" || collision.tag == "Star" || collision.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
-            Morir();
-
+            Death();
         }
         if (collision.tag == "Dato")
         {
-            puntos++;
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
+            currentData++;
         }
-        if (collision.tag == "USB1")
-        {
-            SceneManager.LoadScene("2ndScene");
-        }
-        if (collision.tag == "USB2")
-        {
-            SceneManager.LoadScene("3rdScene");
-        }
-
     }
 
-    void Morir()
+    void Death()
     {
-            Destroy(gameObject);
-            GameObject obj = GameObject.FindGameObjectWithTag("GameController");
-            GameController gc = obj.GetComponent<GameController>();
-            gc.gameOver();
+        Destroy(gameObject);
+        GameController gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gc.gameOver();
+        camAnim.SetTrigger("Shake");
     }
 }

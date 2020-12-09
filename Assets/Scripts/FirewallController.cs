@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FirewallController : MonoBehaviour
 {
-    public int Nivel_Seguridad;
+    public int securityLvl;
     PlayerController Playerino;
 
     void Start()
@@ -14,7 +14,7 @@ public class FirewallController : MonoBehaviour
 
     void Update()
     {
-        if (Nivel_Seguridad <= Playerino.puntos && Nivel_Seguridad != 0)
+        if (securityLvl <= Playerino.currentData && securityLvl != 0)
             gameObject.SetActive(false);
     }
 }

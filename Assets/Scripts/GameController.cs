@@ -8,15 +8,12 @@ public class GameController : MonoBehaviour
 {
     public Text gameOverText;
     PlayerController Player;
-    // Start is called before the first frame update
+
     void Start()
     {
-    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-    Player = playerObj.GetComponent<PlayerController>();
-
+        Player = FindObjectOfType<PlayerController>();
     }
     
-    // Update is called once per frame
     void Update()
     {
 
